@@ -1,0 +1,12 @@
+#container-box{
+  display: flex;
+  flex-direction: column;
+}
+
+.item-box{
+  margin: auto;
+  
+}
+
+
+
