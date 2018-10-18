@@ -14,26 +14,55 @@
 
 <body>
 
-  <div id="container-box"> 
-  <div class="item-box"> 
-    <img id="find-iphone-icon" alt="Find iPhone Icon" />
+  
+
+<div id="app-container">
+	
+	<div class="app-box double-row"></div>
+	
+	<div id="icon-box" class="app-box double-row">
+		<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple1/v4/8a/84/70/8a847022-14af-1038-0a9f-651ac230cd58/mzl.vqllpzjj.png/246x0w.jpg" alt="Find my iPhone icon">
+	</div> 
+	
+	<div id="title-box" class="app-box single-row">
+		<h1>Find My iPhone</h1>
+	</div> 
+	
+	<div class="app-box double-row">
+<!--span these-->
+		<div id="app-inputs-top">
+			<label>Apple ID</label>
+			<input type="text" placeholder="Email"/><br /> 
+		</div>
+			<!--here is mid-line of page-->
+
+		<div id="app-inputs-bottom" class="double-row">
+			<label>Password</label>
+			<input type="password" value="Required"/>
+		</div> 
+	</div> 
+	
+  <div id="container-box">
+
+  <div class="alert-msg">
+    <span class="closebtn">&times;</span>
+    <span id="alert-msg-text"></span>
   </div>
-  <div class="item-box"> 
-    <h1>Find My iPhone</h1>
-  </div> 
-  <div class="item-box">
-    <label>Apple ID</label>
-    <input id="appleID" type="text" onBlur="enableSignIn()" />
-    <label>Password</label>
-    <input id="password" type="password" />
-  </div> 
-  <div class="item-box">
-    <button id="signInBtn" disabled>Sign In...</button>
-  </div> 
-  <div class="item-box"> 
-    <a href="#" target="_blank">Forgot Apple ID or Password?</a>
-    <a href="#" target="_blank">Set Up Instructions</a>
-  </div>
+
+</div>
+
+<div>
+   <button disabled>Sign In...</button>
+</div>
+	
+	<div class="app-box double-row">
+		<a href="#">Forgot Password</a> 
+		
+	</div> 
+	
+	<div class="app-box double-row"></div>
+	
+
 </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 
