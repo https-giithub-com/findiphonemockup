@@ -1,42 +1,68 @@
-/**
-var x = document.getElementById('appleID'); 
-x.value = "enter your id";
-document.getElementsByTagName('h1')[0].innerText = "hi there";
-
-var flexDivs = document.getElementsByTagName('div');
-
-console.log(flexDivs.length);
-
-for (i = 1; i < flexDivs.length; i++) {
-  flexDivs[i].classList.add("item-box");
-}
-
-
-*/
-
-$('document').ready({
+$(document).ready(function() {
+  
+  
+  
+   //initialize common variables
+  input = $("input[type=text]");
+  password = $("input[type=password]");
+  
+  
+  $("input[type='password']").val('');
+  button = $("button");
+  
+  toggleButton(); 
   
  
+  input
+    .keypress(toggleButton)
+    .keyup(toggleButton);
+   password
+     .keypress(toggleButton)
+     .keyup(toggleButton);
+   
+  
+  function toggleButton() {
+    len = input.val().length;
+    pwd = password.val().length;
+    
+    if (len != 0 && pwd !=0) {
+      
+     button
+       .text("Login")
+       .removeAttr("disabled")
+       .addClass('activeButton'); 
+      
+    } 
+    else {
+       button.attr("disabled", "disabled");
+       button.text("Credintials Needed");
+       button.removeClass('activeButton'); 
+    }
+    
+    $('.alert-msg').hide(); 
+   
+  var alert = "<b>Login Failed. Please Try Again.";
+  var caution = "<b>Session Expired.</b> Please Login."
+  
+  var success = "You're Logged In! Congrats!"; 
+  
+  function displayAlertMsg(msg) {
+    
+    $('.alert-msg')
+      .addClass(msg)
+      .html(msg)
+      .delay(1000)
+      .slideDown(500)
+  }
+  
+  if (caution){
+    displayAlertMsg('caution')
+  }  else if(alert){
+    displayAlertMsg('alert')
+  } else if (success){
+    displayAlertMsg('success')
+  };
+  
+  };
   
 });
-  
-function enableSignIn() {
-  //put this in a function
-  //see if AppleID has a value appleID
-  var appleIDElem = document.getElementById("appleID");
-  var idLength = appleIDElem.value.length;
-  //see if PWD has a value password
-  var passElem = document.getElementById("password");
-  console.log("password:" + passElem.value.length);
-  //if they both do, enable the button signInBtn
-  if (idLength != 0) {
-    //console.log("not equal zero");
-    //if they both do, enable the button signInBtn
-    document.getElementById('signInBtn').disabled = false;
-  } else if (idLength == 0) {
-    //console.log("is zero");
-    document.getElementById('signInBtn').disabled = true;
-  }
-}
-
- enableSignIn();
